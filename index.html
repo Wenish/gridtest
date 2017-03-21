@@ -1,0 +1,50 @@
+<html>
+<head>
+<link rel="stylesheet" href="handsome.css">
+</head>
+<body>
+<div id="example"></div>
+
+<script src="handsome.js"></script>
+<script>
+var data = [
+  ['brenz',
+  'amadeus',
+  '+41 79 881 75 00',
+  'a.brenz@gmx.cb',
+  'faehrstrasse 49 3004 bern',
+  'Brenz',
+  'Barbara',
+  '+41 79 234 34 23',
+  'muter@email.com',
+  'brenz',
+  'bolan',
+  '+41 79 465 52 52',
+  'Vater@email.com']
+];
+
+var container = document.getElementById('example');
+var hot = new Handsontable(container, {
+  data: data,
+  rowHeaders: true,
+  colHeaders: [
+    'Mitglied Name',
+    'Mitglied Vorname',
+    'Mitglied Telefonnummer',
+    'Mitglied E-Mail',
+    'Mitglied Adresse',
+    'Mutter Name',
+    'Mutter Vorname',
+    'Mutter Mobile',
+    'Mutter E-Mail',
+    'Vater Name',
+    'Vater Vorname',
+    'Vater Mobile',
+    'Vater E-Mail'],
+  dropdownMenu: true,
+  columnSorting: true,
+  minSpareRows: 1
+});
+</script>
+</body>
+</html>
