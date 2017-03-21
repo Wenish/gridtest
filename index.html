@@ -8,7 +8,9 @@
 <script src="handsome.js"></script>
 <script>
 var data = [
-  ['brenz',
+  [
+  'kind',
+  'brenz',
   'amadeus',
   '+41 79 881 75 00',
   'a.brenz@gmx.cb',
@@ -24,10 +26,17 @@ var data = [
 ];
 
 var container = document.getElementById('example');
+function calculatedField(instance, td, row, col, prop, value, cellProperties){
+  var escaped = Handsontable.helper.stringify(value);
+  escaped = strip_tags(escaped, '<em><b><strong><a><big>');
+  td.innerHTML = escaped;
+  return td;
+};
 var hot = new Handsontable(container, {
   data: data,
   rowHeaders: true,
   colHeaders: [
+    '',
     'Mitglied Name',
     'Mitglied Vorname',
     'Mitglied Telefonnummer',
@@ -40,10 +49,11 @@ var hot = new Handsontable(container, {
     'Vater Name',
     'Vater Vorname',
     'Vater Mobile',
-    'Vater E-Mail'],
-  dropdownMenu: true,
+    'Vater E-Mail'
+  ],
   columnSorting: true,
-  minSpareRows: 1
+  minSpareRows: 1,
+  fixedColumnsLeft: 3
 });
 </script>
 </body>
